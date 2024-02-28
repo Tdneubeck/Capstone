@@ -7,4 +7,5 @@
     <string name="firstname">First Name</string>
     <string name="lastname">Last Name</string>
     <string name="email">Email</string>
+    <string name="login">Log-In</string>
 </resources>
