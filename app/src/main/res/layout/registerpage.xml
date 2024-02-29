@@ -9,20 +9,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
-        android:textColor="#FF0000"
+        android:textColor="#000000"
+        android:textSize="20sp"
         android:gravity="center"
         android:padding="16dp"
-        android:background="#FFFFFF"/>
+        android:background="@color/red"/>
 
  <LinearLayout
      android:id="@+id/login_box"
-     android:layout_width="match_parent"
+     android:layout_width="300dp"
+     android:layout_marginStart="75dp"
      android:layout_height="wrap_content"
      android:layout_below="@id/banner"
      android:layout_marginTop="48dp"
      android:orientation="vertical"
      android:padding="16dp"
-     android:background="@color/cardview_light_background">
+     android:background="#d3d3d3">
 
 
   <TextView
@@ -36,38 +38,52 @@
   <EditText
       android:id="@+id/firstname"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
+      android:layout_height="48dp"
       android:layout_marginTop="8dp"
+      android:background="@color/white"
       android:hint="@string/firstname" />
   <!-- last name text box -->
   <EditText
       android:id="@+id/lastname"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
+      android:layout_height="48dp"
+      android:layout_marginTop="12dp"
+      android:background="@color/white"
       android:hint="@string/lastname" />
   <EditText
       android:id="@+id/email"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
+      android:layout_height="48dp"
+      android:layout_marginTop="12dp"
+      android:background="@color/white"
       android:hint="@string/email" />
 
   <!-- Username text box -->
   <EditText
       android:id="@+id/username"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="16dp"
+      android:layout_height="48dp"
+      android:layout_marginTop="12dp"
+      android:background="@color/white"
       android:hint="@string/Username" />
 
   <!-- Password text box -->
   <EditText
       android:id="@+id/password"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
+      android:layout_height="48dp"
+      android:layout_marginTop="12dp"
+      android:background="@color/white"
       android:hint="@string/password"
+      android:inputType="textPassword" />
+
+  <EditText
+      android:id="@+id/confirmpassword"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:layout_marginTop="12dp"
+      android:background="@color/white"
+      android:hint="@string/confirm_password"
       android:inputType="textPassword" />
 
   <!-- Enter button -->
@@ -76,9 +92,9 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
-      android:background="#FF0000"
       android:text="@string/enter"
-      android:textColor="#FFFFFF" />
+      android:backgroundTint="@color/red"
+      android:textColor="@color/black" />
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
