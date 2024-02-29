@@ -17,7 +17,7 @@
 
     <!-- Login box -->
     <LinearLayout
-        android:id="@+id/login_box"
+        android:id="@+id/prize_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/banner"
