@@ -1,44 +1,147 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.firebase.crashlytics'
 }
+
+def isAutoSigning = new File(".signing/keystore.properties").exists()
 
 android {
     namespace 'edu.missouri.collegerewards'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "edu.missouri.collegerewards"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    if (isAutoSigning) {
+        Properties props = new Properties()
+        props.load(new FileInputStream(file("../.signing/keystore.properties")))
+
+        signingConfigs {
+            release {
+                storeFile file(props['RELEASE_STORE_FILE'])
+                storePassword props['RELEASE_STORE_PASSWORD']
+                keyAlias props['RELEASE_STORE_KEY_ALIAS']
+                keyPassword props['RELEASE_STORE_KEY_PASSWORD']
+            }
         }
     }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            ndk {
+                debugSymbolLevel 'FULL'
+            }
+
+            if (isAutoSigning) {
+                signingConfig signingConfigs.release
+            }
+
+            buildConfigField "boolean", "RELEASE", "true"
+
+            buildConfigField "java.util.Date", "BUILD_TIME", "new java.util.Date(" + System.currentTimeMillis() + "L)"
+        }
+
+        debug {
+            minifyEnabled false
+
+            versionNameSuffix "-debug"
+
+            buildConfigField "boolean", "RELEASE", "false"
+
+            buildConfigField "java.util.Date", "BUILD_TIME", "new java.util.Date(" + System.currentTimeMillis() + "L)"
+        }
+    }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation platform('com.google.firebase:firebase-bom:31.4.0')
+
+    // Auth
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.android.gms:play-services-auth:21.0.0'
+
+    // Storage
+    implementation 'com.google.firebase:firebase-storage-ktx'
+
+    // Realtime Database
+    implementation 'com.google.firebase:firebase-database-ktx'
+
+    // Firestore
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+
+    // Messaging
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+    implementation 'com.google.firebase:firebase-inappmessaging-display-ktx'
+
+    // Functions
+    implementation 'com.google.firebase:firebase-functions-ktx'
+
+    // GeoFire
+    implementation 'com.firebase:geofire-android:3.2.0'
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+    kapt 'com.github.bumptech.glide:compiler:4.14.2'
+    implementation 'com.firebaseui:firebase-ui-storage:8.0.2'
+
+    // GSON
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1'
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.7.0"
+    implementation "androidx.fragment:fragment-ktx:1.6.2"
+
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.7'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.7'
+
+    // Version 1.8.0 or higher
+    implementation 'com.google.android.play:core:1.10.3'
+
+    // For Kotlin users: add useful extensions that make the APIs more idiomatic.
+    implementation 'com.google.android.play:core-ktx:1.8.1'
+
+    // Crashlytics
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
 }
