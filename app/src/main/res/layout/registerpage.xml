@@ -13,18 +13,18 @@
         android:textSize="20sp"
         android:gravity="center"
         android:padding="16dp"
-        android:background="@color/red"/>
+        android:background="@color/yellow"/>
 
  <LinearLayout
      android:id="@+id/login_box"
      android:layout_width="300dp"
-     android:layout_marginStart="75dp"
+     android:layout_centerHorizontal="true"
      android:layout_height="wrap_content"
      android:layout_below="@id/banner"
      android:layout_marginTop="48dp"
      android:orientation="vertical"
      android:padding="16dp"
-     android:background="#d3d3d3">
+     android:background="@color/grey">
 
 
   <TextView
@@ -32,7 +32,7 @@
       android:layout_height="wrap_content"
       android:layout_gravity="center"
       android:text="@string/register"
-      android:textColor="#FF0000"
+      android:textColor="@color/black"
       android:textSize="20sp" />
   <!-- first name text box -->
   <EditText
@@ -93,7 +93,7 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
       android:text="@string/enter"
-      android:backgroundTint="@color/red"
+      android:backgroundTint="@color/yellow"
       android:textColor="@color/black" />
   <LinearLayout
       android:layout_width="match_parent"
@@ -107,7 +107,7 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:text="@string/login"
-       android:textColor="#FF0000"
+       android:textColor="@color/black"
        android:textSize="16sp"/>
 
 
