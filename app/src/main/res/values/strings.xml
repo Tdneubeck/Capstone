@@ -11,4 +11,6 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="rewards">Rewards</string>
     <string name="college_rewards">College Rewards</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="information">information</string>
 </resources>

@@ -10,10 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
-        android:textColor="#FF0000"
+        android:textColor="@color/black"
         android:gravity="center"
         android:padding="16dp"
-        android:background="#FFFFFF"/>
+        android:background="@color/yellow"/>
 
     <!-- Login box -->
     <LinearLayout
@@ -27,9 +27,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="@string/login"
             android:textSize="20sp"
-            android:textColor="#FF0000"
+            android:textColor="@color/black"
             android:layout_gravity="center"/>
 
         <!-- Username text box -->
@@ -37,7 +37,9 @@
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="@string/Username"
+            android:autofillHints="username"
+            android:inputType="text"
             android:layout_marginTop="16dp"/>
 
         <!-- Password text box -->
@@ -45,8 +47,9 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/password"
             android:layout_marginTop="8dp"
+            android:autofillHints="password"
             android:inputType="textPassword"/>
 
         <!-- Enter button -->
@@ -54,8 +57,8 @@
             android:id="@+id/enter_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter"
-            android:background="#FF0000"
+            android:text="@string/enter"
+            android:backgroundTint="@color/yellow"
             android:textColor="#FFFFFF"
             android:layout_marginTop="16dp"/>
 
@@ -71,16 +74,16 @@
                 android:id="@+id/register_link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Register"
-                android:textColor="#FF0000"
+                android:text="@string/register"
+                android:textColor="@color/yellow"
                 android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/forgot_password_link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Forgot Password?"
-                android:textColor="#FF0000"
+                android:text="@string/forgot_password"
+                android:textColor="@color/yellow"
                 android:textSize="16sp"
                 android:layout_marginStart="16dp"/>
 
@@ -97,6 +100,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
         android:src="@drawable/ic_info_circle"
-        app:tint="#FF0000" />
+        app:tint="@color/yellow"
+        android:contentDescription="@string/information" />
 
 </RelativeLayout>
