@@ -41,7 +41,9 @@
       android:layout_height="48dp"
       android:layout_marginTop="8dp"
       android:background="@color/white"
-      android:hint="@string/firstname" />
+      android:hint="@string/firstname"
+      android:autofillHints="name"
+      android:inputType="textPersonName" />
   <!-- last name text box -->
   <EditText
       android:id="@+id/lastname"
@@ -49,14 +51,18 @@
       android:layout_height="48dp"
       android:layout_marginTop="12dp"
       android:background="@color/white"
-      android:hint="@string/lastname" />
+      android:hint="@string/lastname"
+      android:autofillHints="name"
+      android:inputType="textPersonName" />
   <EditText
       android:id="@+id/email"
       android:layout_width="match_parent"
       android:layout_height="48dp"
       android:layout_marginTop="12dp"
       android:background="@color/white"
-      android:hint="@string/email" />
+      android:hint="@string/email"
+      android:autofillHints="emailAddress"
+      android:inputType="textEmailAddress" />
 
   <!-- Username text box -->
   <EditText
@@ -65,7 +71,9 @@
       android:layout_height="48dp"
       android:layout_marginTop="12dp"
       android:background="@color/white"
-      android:hint="@string/Username" />
+      android:hint="@string/Username"
+      android:autofillHints="username"
+      android:inputType="textNoSuggestions" />
 
   <!-- Password text box -->
   <EditText
@@ -75,7 +83,8 @@
       android:layout_marginTop="12dp"
       android:background="@color/white"
       android:hint="@string/password"
-      android:inputType="textPassword" />
+      android:inputType="textPassword"
+      android:autofillHints="password" />
 
   <EditText
       android:id="@+id/confirmpassword"
@@ -84,7 +93,8 @@
       android:layout_marginTop="12dp"
       android:background="@color/white"
       android:hint="@string/confirm_password"
-      android:inputType="textPassword" />
+      android:inputType="textPassword"
+      android:autofillHints="password" />
 
   <!-- Enter button -->
   <Button
