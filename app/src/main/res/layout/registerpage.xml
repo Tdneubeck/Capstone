@@ -87,7 +87,7 @@
       android:autofillHints="password" />
 
   <EditText
-      android:id="@+id/confirmpassword"
+      android:id="@+id/confirm_password"
       android:layout_width="match_parent"
       android:layout_height="48dp"
       android:layout_marginTop="12dp"

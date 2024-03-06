@@ -9,4 +9,6 @@
     <string name="email">Email</string>
     <string name="login">Log-In</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="rewards">Rewards</string>
+    <string name="college_rewards">College Rewards</string>
 </resources>
