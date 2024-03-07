@@ -6,20 +6,21 @@
 
     <!-- Your main content goes here -->
 
+    <!-- Bottom Navigation View -->
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottomNavigationView">
+
         <!-- This FrameLayout is where your different pages will be displayed -->
     </FrameLayout>
 
-    <!-- Bottom Navigation View -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_navigation_menu"
-        android:background="@color/yellow"/>
+        android:background="@color/yellow" />
 </RelativeLayout>
