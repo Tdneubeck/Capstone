@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_item_1"
+        android:title="Page 1"
+        android:icon="@drawable/home_image" />
+
+    <item
+        android:id="@+id/menu_item_2"
+        android:title="Page 2"
+        android:icon="@drawable/calendar_image" />
+
+    <item
+        android:id="@+id/menu_item_3"
+        android:title="Page 3"
+        android:icon="@drawable/reward_image" />
+
+    <item
+        android:id="@+id/menu_item_4"
+        android:title="Page 4"
+        android:icon="@drawable/leaderboard_image" />
+</menu>
