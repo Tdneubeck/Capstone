@@ -78,7 +78,7 @@
                                     android:layout_width="120dp"
                                     android:layout_height="108dp"
                                     android:layout_marginStart="16dp"
-                                    android:src="@tools:sample/avatars" />
+                                    />
 
                                 <TextView
                                     android:id="@+id/textView1"
@@ -109,7 +109,7 @@
                                      android:layout_height="108dp"
                                      android:layout_marginStart="16dp"
                                      android:layout_marginTop="12dp"
-                                     android:src="@tools:sample/avatars"
+
                                      />
 
                                  <TextView
@@ -140,7 +140,7 @@
                                     android:layout_height="108dp"
                                     android:layout_marginStart="16dp"
                                     android:layout_marginTop="12dp"
-                                    android:src="@tools:sample/avatars"
+
                                     />
 
                                 <TextView
@@ -173,7 +173,7 @@
                                     android:layout_height="108dp"
                                     android:layout_marginStart="16dp"
                                     android:layout_marginTop="12dp"
-                                    android:src="@tools:sample/avatars"
+
                                     />
 
 
@@ -208,7 +208,7 @@
                                     android:layout_height="108dp"
                                     android:layout_marginStart="16dp"
                                     android:layout_marginTop="12dp"
-                                    android:src="@tools:sample/avatars" />
+                                     />
 
                                 <TextView
                                     android:id="@+id/textView5"
