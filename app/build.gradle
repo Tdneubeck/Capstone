@@ -67,6 +67,11 @@ android {
             buildConfigField "java.util.Date", "BUILD_TIME", "new java.util.Date(" + System.currentTimeMillis() + "L)"
         }
     }
+    android{
+        buildFeatures{
+            viewBinding = true
+        }
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
