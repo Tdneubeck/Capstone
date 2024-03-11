@@ -28,4 +28,15 @@
         android:name="edu.missouri.collegerewards.ui.account.AccountFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="edu.missouri.collegerewards.ui.conditionalnav.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment"/>
+    <fragment
+        android:id="@+id/register_fragment"
+        android:name="edu.missouri.collegerewards.ui.conditionalnav.RegisterFragment"
+        android:label="Register_fragment"
+        tools:layout="@layout/fragment_registerpage"/>
+
 </navigation>
