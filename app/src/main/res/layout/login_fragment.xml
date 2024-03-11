@@ -9,80 +9,88 @@
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="College Rewards"
-        android:textColor="#FF0000"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
         android:gravity="center"
         android:padding="16dp"
-        android:background="#FFFFFF"/>
+        android:background="@color/yellow"/>
 
     <!-- Login box -->
     <LinearLayout
         android:id="@+id/login_box"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/banner"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         android:orientation="vertical"
+        android:background="@color/grey"
         android:padding="16dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login"
-            android:textSize="20sp"
-            android:textColor="#FF0000"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:text="@string/login"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <!-- Username text box -->
         <EditText
             android:id="@+id/username"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Username"
-            android:layout_marginTop="16dp"/>
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:autofillHints="username"
+            android:hint="@string/Username"
+            android:background="@color/white"
+            android:inputType="text" />
 
         <!-- Password text box -->
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
+            android:layout_height="48dp"
             android:layout_marginTop="8dp"
-            android:inputType="textPassword"/>
+            android:autofillHints="password"
+            android:hint="@string/password"
+            android:background="@color/white"
+            android:inputType="textPassword" />
 
         <!-- Enter button -->
         <Button
             android:id="@+id/enter_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter"
-            android:background="#FF0000"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/yellow"
+            android:text="@string/enter"
+            android:textColor="#FFFFFF" />
 
         <!-- Register and Forgot Password links -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
             android:gravity="center"
-            android:layout_marginTop="8dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/register_link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Register"
-                android:textColor="#FF0000"
-                android:textSize="16sp"/>
+                android:text="@string/register"
+                android:textColor="@color/yellow"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/forgot_password_link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Forgot Password?"
-                android:textColor="#FF0000"
-                android:textSize="16sp"
-                android:layout_marginStart="16dp"/>
+                android:layout_marginStart="16dp"
+                android:text="@string/forgot_password"
+                android:textColor="@color/yellow"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -97,6 +105,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
         android:src="@drawable/ic_info_circle"
-        app:tint="#FF0000" />
+        android:contentDescription="@string/information"
+        app:tint="@color/yellow" />
 
 </RelativeLayout>
