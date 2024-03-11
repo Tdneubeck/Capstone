@@ -14,4 +14,21 @@
     <string name="testEvent3">Test Event 3</string>
     <string name="testEvent4">Test Event 4</string>
     <string name="testEvent5">Test Event 5</string>
+
+    <string name="Username">Username</string>
+    <string name="password">Password</string>
+    <string name="enter">Enter</string>
+    <string name="register">Register</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="email">Email</string>
+    <string name="login">Log-In</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="rewards">Rewards</string>
+    <string name="college_rewards">College Rewards</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="information">information</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="calendar">Calendar</string>
+    <string name="home">Home</string>
 </resources>

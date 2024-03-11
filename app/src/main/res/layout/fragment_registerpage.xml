@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="@color/yellow"/>
+
+    <LinearLayout
+        android:id="@+id/login_box"
+        android:layout_width="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/banner"
+        android:layout_marginTop="48dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/grey">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/register"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+        <!-- first name text box -->
+        <EditText
+            android:id="@+id/firstname"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/white"
+            android:hint="@string/firstname"
+            android:autofillHints="name"
+            android:inputType="textPersonName" />
+        <!-- last name text box -->
+        <EditText
+            android:id="@+id/lastname"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:hint="@string/lastname"
+            android:autofillHints="name"
+            android:inputType="textPersonName" />
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:hint="@string/email"
+            android:autofillHints="emailAddress"
+            android:inputType="textEmailAddress" />
+
+        <!-- Username text box -->
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:hint="@string/Username"
+            android:autofillHints="username"
+            android:inputType="textNoSuggestions" />
+
+        <!-- Password text box -->
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:autofillHints="password" />
+
+        <EditText
+            android:id="@+id/confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword"
+            android:autofillHints="password" />
+
+        <!-- Enter button -->
+        <Button
+            android:id="@+id/enter_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/enter"
+            android:backgroundTint="@color/yellow"
+            android:textColor="@color/black" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/login_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
