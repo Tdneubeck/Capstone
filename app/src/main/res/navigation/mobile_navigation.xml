@@ -27,7 +27,7 @@
         android:id="@+id/navigation_account"
         android:name="edu.missouri.collegerewards.ui.account.AccountFragment"
         android:label="@string/title_account"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_leaderboard" />
     <fragment
         android:id="@+id/login_fragment"
         android:name="edu.missouri.collegerewards.ui.conditionalnav.LoginFragment"

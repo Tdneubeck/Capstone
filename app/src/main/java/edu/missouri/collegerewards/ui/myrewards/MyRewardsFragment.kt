@@ -24,7 +24,7 @@ class MyRewardsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val myRewardsViewModel =
-            ViewModelProvider(this).get(MyRewardsViewModel::class.java)
+            ViewModelProvider(this)[MyRewardsViewModel::class.java]
 
         _binding = FragmentMyRewardsBinding.inflate(inflater, container, false)
         val root: View = binding.root
