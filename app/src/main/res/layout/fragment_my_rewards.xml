@@ -3,45 +3,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/relativeLayout2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <!-- Red banner across the top -->
-
-    <!-- Login box -->
-
-
-    <!-- Username text box -->
-
-    <!-- Password text box -->
-
-    <!-- Enter button -->
-
-    <!-- Register and Forgot Password links -->
+    android:layout_height="match_parent"
+    >
     <TextView
-        android:id="@+id/banner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/yellow"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="@string/app_name"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+    android:id="@+id/topbanner"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/yellow"
+    android:gravity="center"
+    android:padding="16dp"
+    android:textSize="20sp"
+    android:text="@string/app_name"
+    android:textColor="@color/black"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+        > </TextView>
 
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/banner">
+        app:layout_constraintTop_toBottomOf="@id/topbanner"
+        >
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="15dp"
+            >
 
             <TextView
                 android:id="@+id/Reward"
@@ -54,7 +48,7 @@
                 android:textSize="48sp"
                 android:layout_gravity="center_horizontal"  />
 
-            <EditText
+            <TextView
                 android:id="@+id/point_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
