@@ -5,28 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <TextView
-    android:id="@+id/topbanner"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/yellow"
-    android:gravity="center"
-    android:padding="16dp"
-    android:textSize="20sp"
-    android:text="@string/app_name"
-    android:textColor="@color/black"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-        > </TextView>
-
-
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/topbanner"
+        app:layout_constraintTop_toTopOf="parent"
         >
 
 
