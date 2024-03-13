@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
-import edu.missouri.collegerewards.R
 import edu.missouri.collegerewards.databinding.FragmentHomeBinding
+import edu.missouri.collegerewards.databinding.FragmentLeaderboardBinding
 
-class AccountFragment : Fragment() {
+class LeaderboardFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentLeaderboardBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,14 +23,14 @@ class AccountFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val accountViewModel =
-            ViewModelProvider(this).get(AccountViewModel::class.java)
+        val leaderboardViewModel =
+            ViewModelProvider(this)[LeaderboardViewModel::class.java]
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentLeaderboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        accountViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.leaderboardTitle
+        leaderboardViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root

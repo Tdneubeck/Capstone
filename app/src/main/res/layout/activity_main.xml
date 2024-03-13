@@ -5,11 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <include
-        android:id="@+id/xml_toolbar"
-        layout="@layout/toolbar"
-        >
-    </include>
+
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

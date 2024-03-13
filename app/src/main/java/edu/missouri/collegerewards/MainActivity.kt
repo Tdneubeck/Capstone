@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import edu.missouri.collegerewards.databinding.ActivityMainBinding
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -21,14 +22,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val toolbar =  findViewById<Toolbar>(R.id.toolbar)
+
 
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_upcoming_events, R.id.navigation_my_rewards, R.id.navigation_account
+                R.id.navigation_home, R.id.navigation_upcoming_events, R.id.navigation_my_rewards, R.id.navigation_leaderboard
             )
         )
         // Remove this line
