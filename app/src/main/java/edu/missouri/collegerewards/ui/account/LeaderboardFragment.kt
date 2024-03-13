@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
-import edu.missouri.collegerewards.databinding.FragmentHomeBinding
 import edu.missouri.collegerewards.databinding.FragmentLeaderboardBinding
 
 class LeaderboardFragment : Fragment() {
