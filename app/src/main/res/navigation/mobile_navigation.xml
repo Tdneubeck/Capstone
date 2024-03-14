@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/navigation_home">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -28,15 +28,18 @@
         android:name="edu.missouri.collegerewards.ui.account.LeaderboardFragment"
         android:label="@string/title_leaderboard"
         tools:layout="@layout/fragment_leaderboard" />
+
     <fragment
-        android:id="@+id/login_fragment"
+        android:id="@+id/navigation_login"
         android:name="edu.missouri.collegerewards.ui.conditionalnav.LoginFragment"
-        android:label="login_fragment"
-        tools:layout="@layout/login_fragment"/>
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login"/>
+
     <fragment
-        android:id="@+id/register_fragment"
+        android:id="@+id/navigation_register"
         android:name="edu.missouri.collegerewards.ui.conditionalnav.RegisterFragment"
-        android:label="Register_fragment"
+        android:label="@string/register"
         tools:layout="@layout/fragment_registerpage"/>
+
 
 </navigation>
