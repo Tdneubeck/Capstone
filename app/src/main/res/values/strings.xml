@@ -31,4 +31,7 @@
     <string name="leaderboard">Leaderboard</string>
     <string name="calendar">Calendar</string>
     <string name="home">Home</string>
+    <string name="pointcount">X points</string>
+    <string name="nextrewardcount">X points till next Reward</string>
+
 </resources>

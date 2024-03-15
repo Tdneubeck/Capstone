@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="edu.missouri.collegerewards.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_my_rewards2"
+            app:destination="@id/navigation_my_rewards" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_upcoming_events"
