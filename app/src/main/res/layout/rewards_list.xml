@@ -24,174 +24,213 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView1"
         android:layout_width="120dp"
         android:layout_height="108dp"
-        android:src="@tools:sample/avatars"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="781dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="781dp"
+        android:src="@drawable/shaw"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="293dp"
+        android:layout_marginTop="793dp"
         android:backgroundTint="#FF0000"
         android:text="25 Points"
-        tools:layout_editor_absoluteX="293dp"
-        tools:layout_editor_absoluteY="793dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView1"
         android:layout_width="83dp"
         android:layout_height="28dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="793dp"
         android:lineSpacingExtra="34sp"
         android:text="Prize 5"
         android:textAlignment="center"
-        tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="793dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="120dp"
         android:layout_height="108dp"
-        android:src="@tools:sample/avatars"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="651dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="651dp"
+        android:src="@drawable/shaw"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="293dp"
+        android:layout_marginTop="663dp"
         android:backgroundTint="#FF0000"
         android:text="20 Points"
-        tools:layout_editor_absoluteX="293dp"
-        tools:layout_editor_absoluteY="663dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView2"
         android:layout_width="83dp"
         android:layout_height="28dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="663dp"
         android:lineSpacingExtra="34sp"
         android:text="Prize 4"
         android:textAlignment="center"
-        tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="663dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView3"
         android:layout_width="120dp"
         android:layout_height="108dp"
-        android:src="@tools:sample/avatars"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="518dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="518dp"
+        android:src="@drawable/shaw"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView3"
         android:layout_width="83dp"
         android:layout_height="28dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="530dp"
         android:lineSpacingExtra="34sp"
         android:text="Prize 3"
         android:textAlignment="center"
-        tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="530dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="293dp"
+        android:layout_marginTop="530dp"
         android:backgroundTint="#FF0000"
         android:text="15 Points"
-        tools:layout_editor_absoluteX="293dp"
-        tools:layout_editor_absoluteY="530dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView4"
         android:layout_width="120dp"
         android:layout_height="108dp"
-        android:src="@tools:sample/avatars"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="390dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="390dp"
+        android:src="@drawable/shaw"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView4"
         android:layout_width="83dp"
         android:layout_height="28dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="402dp"
         android:lineSpacingExtra="34sp"
         android:text="Prize 2"
         android:textAlignment="center"
-        tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="402dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="293dp"
+        android:layout_marginTop="402dp"
         android:backgroundTint="#FF0000"
         android:text="10 Points"
-        tools:layout_editor_absoluteX="293dp"
-        tools:layout_editor_absoluteY="402dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/banner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="6dp"
         android:background="#FFFFFF"
         android:gravity="center"
         android:padding="16dp"
         android:text="College Rewards"
         android:textColor="#FF0000"
-        tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="6dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="57dp"
         android:text="Rewards"
         android:textAlignment="center"
         android:textColor="#FF0000"
         android:textSize="48sp"
-        tools:layout_editor_absoluteX="112dp"
-        tools:layout_editor_absoluteY="57dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextNumber3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="128dp"
         android:ems="10"
         android:inputType="number"
         android:text="55 points"
         android:textAlignment="center"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="128dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="83dp"
         android:layout_height="28dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="262dp"
+        android:layout_marginBottom="441dp"
         android:lineSpacingExtra="34sp"
         android:text="Prize 1"
         android:textAlignment="center"
-        tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="262dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.013" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView5"
         android:layout_width="120dp"
         android:layout_height="108dp"
-        android:src="@tools:sample/avatars"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="250dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="250dp"
+        android:src="@drawable/shaw"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="293dp"
+        android:layout_marginTop="262dp"
         android:backgroundTint="#FF0000"
         android:text="5 Points"
-        tools:layout_editor_absoluteX="293dp"
-        tools:layout_editor_absoluteY="262dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
