@@ -13,7 +13,8 @@ class UpcomingEventItemAdapter(private val context: Context, private val dataset
     : RecyclerView.Adapter<UpcomingEventItemAdapter.UpcomingEventItemViewHolder>() {
 
     class UpcomingEventItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view){
-        val textView: TextView = view.findViewById(R.id.upcoming_event_item_title)
+        val titleTextView: TextView = view.findViewById(R.id.upcoming_event_item_title)
+        val locationTextView: TextView = view.findViewById(R.id.upcoming_event_item_location)
         val imageView: ImageView = view.findViewById(R.id.upcoming_event_item_image)
     }
 
@@ -29,7 +30,8 @@ class UpcomingEventItemAdapter(private val context: Context, private val dataset
 
     override fun onBindViewHolder(holder: UpcomingEventItemViewHolder, position: Int) {
         val item = dataset[position]
-        holder.textView.text = context.resources.getString(item.stringResourceID)
+        holder.titleTextView.text = context.resources.getString(item.titleStringResourceID)
+        holder.locationTextView.text = context.resources.getString(item.locationStringResourceID)
         holder.imageView.setImageResource(item.imageResourceID)
     }
 }
