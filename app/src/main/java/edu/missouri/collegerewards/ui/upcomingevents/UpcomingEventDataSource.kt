@@ -9,11 +9,11 @@ This will need to be updated to receive the events from firebase - Calvin*/
 public final class UpcomingEventDataSource {
     fun loadUpcomingEvents(): List<UpcomingEvent>{
         return listOf<UpcomingEvent>(
-            UpcomingEvent(R.string.testEvent1, R.string.event_location_1, R.drawable.mizzou),
-            UpcomingEvent(R.string.testEvent2, R.string.event_location_1,R.drawable.mizzouvkansas),
-            UpcomingEvent(R.string.testEvent3, R.string.event_location_1,R.drawable.mizzou),
-            UpcomingEvent(R.string.testEvent4, R.string.event_location_1, R.drawable.mizzouvkansas),
-            UpcomingEvent(R.string.testEvent5, R.string.event_location_1,R.drawable.mizzou),
+            UpcomingEvent(R.string.testEvent1, R.string.event_location_1, R.string.event_date_1, R.drawable.mizzou),
+            UpcomingEvent(R.string.testEvent2, R.string.event_location_1, R.string.event_date_1,R.drawable.mizzouvkansas),
+            UpcomingEvent(R.string.testEvent3, R.string.event_location_1, R.string.event_date_1,R.drawable.mizzou),
+            UpcomingEvent(R.string.testEvent4, R.string.event_location_1, R.string.event_date_1, R.drawable.mizzouvkansas),
+            UpcomingEvent(R.string.testEvent5, R.string.event_location_1, R.string.event_date_1,R.drawable.mizzou),
         )
     }
 }
