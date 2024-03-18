@@ -29,7 +29,7 @@ class MyRewardsFragment : Fragment() {
         _binding = FragmentMyRewardsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.Reward
+        val textView: TextView = binding.pointCount
         myRewardsViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }

@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class MyRewardsViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "Rewards"
+        value = "55 Points"
     }
     val text: LiveData<String> = _text
 }

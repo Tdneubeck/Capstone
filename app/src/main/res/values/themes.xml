@@ -2,7 +2,11 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.CollegeRewards" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <item name="android:statusBarColor">#000000</item>
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/yellow</item>
+        <item name="colorSecondary">@color/black</item>
+        <item name="colorOnBackground">@color/white</item>
+        <item name="colorBackgroundFloating">@color/grey</item>
     </style>
 
     <style name="Theme.CollegeRewards" parent="Base.Theme.CollegeRewards" />

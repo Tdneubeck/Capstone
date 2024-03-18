@@ -6,16 +6,16 @@ import androidx.lifecycle.ViewModel
 
 class HomeViewModel : ViewModel() {
 
-    private val point_text = MutableLiveData<String>().apply {
+    private val pointText = MutableLiveData<String>().apply {
         value = "55 points"
     }
-    val pointtext: LiveData<String> = point_text
-    private val nextreward_text = MutableLiveData<String>().apply {
+    val pointtext: LiveData<String> = pointText
+    private val nextrewardText = MutableLiveData<String>().apply {
         value = "5 points till Next reward"
     }
-    val nextrewardtext: LiveData<String> = nextreward_text
-    private val user_text = MutableLiveData<String>().apply {
+    val nextrewardtext: LiveData<String> = nextrewardText
+    private val userText = MutableLiveData<String>().apply {
         value = "Hello, John"
     }
-    val usertext: LiveData<String> = user_text
+    val usertext: LiveData<String> = userText
 }
