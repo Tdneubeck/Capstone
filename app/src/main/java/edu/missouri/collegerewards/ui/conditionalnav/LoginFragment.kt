@@ -1,26 +1,29 @@
 package edu.missouri.collegerewards.ui.conditionalnav
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
-import com.google.android.gms.tasks.OnCompleteListener
+import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
-import edu.missouri.collegerewards.MainActivity
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import edu.missouri.collegerewards.R
+import edu.missouri.collegerewards.data.SingletonData
+import edu.missouri.collegerewards.objects.User
+import edu.missouri.collegerewards.util.NavigationType
+import edu.missouri.collegerewards.util.Navigator
 
 class LoginFragment : Fragment() {
 
     private lateinit var username: EditText
     private lateinit var password: EditText
     private lateinit var loginButton: Button
-
-    private lateinit var mAuth: FirebaseAuth
+    private lateinit var registerButton: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,31 +31,43 @@ class LoginFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
-        mAuth = FirebaseAuth.getInstance()
-
         username = view.findViewById(R.id.username)
         password = view.findViewById(R.id.password)
         loginButton = view.findViewById(R.id.enter_button)
+        registerButton = view.findViewById(R.id.register_link)
         loginButton.setOnClickListener {
             loginUser(username.text.toString(), password.text.toString())
+        }
+        registerButton.setOnClickListener {
+            Navigator.navigate(NavigationType.Auth, R.id.action_loginFragment_to_registerFragment)
         }
 
         return view
     }
 
-    private fun loginUser(username: String, password: String) {
-        mAuth.signInWithEmailAndPassword(username, password)
-            .addOnCompleteListener(requireActivity(), OnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    val user = mAuth.currentUser
-                    // Navigate user to another screen
-                    startActivity(Intent(requireActivity(), MainActivity::class.java))
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Toast.makeText(requireContext(), "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+    private fun loginUser(email: String, password: String) {
+        if (password.isBlank() || email.isBlank()) return
+        User.login(email, password) { wasSuccessful ->
+            if (wasSuccessful) {
+                Log.e("HOORAY!", "HERE")
+                // Logged in
+                User.loadUser(Firebase.auth.currentUser!!.uid) { user ->
+                    if (user == null) {
+                        val newUser = User(email = Firebase.auth.currentUser!!.email!!, password = "", uid = Firebase.auth.currentUser!!.uid, name = "", fcmToken = "")
+                        newUser.saveUser { success ->
+                            if (success) {
+                                // Navigate to Home
+                                SingletonData.shared.currentUser = newUser
+                                Navigator.navigate(NavigationType.Auth, R.id.action_loginFragment_to_mainContentFragment)
+                            }
+                        }
+                    } else {
+                        // Navigate to home
+                        SingletonData.shared.currentUser = user
+                        Navigator.navigate(NavigationType.Auth, R.id.action_loginFragment_to_mainContentFragment)
+                    }
                 }
-            })
+            }
+        }
     }
 }

@@ -18,7 +18,7 @@
     <string name="event_location_1">Test Location 1</string>
     <string name="event_date_1">3 March, 2024</string>
 
-    <string name="Username">Username</string>
+    <string name="Email">Email</string>
     <string name="password">Password</string>
     <string name="enter">Enter</string>
     <string name="register">Register</string>
