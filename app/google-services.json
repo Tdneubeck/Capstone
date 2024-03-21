@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "413583261568",
+    "project_id": "collegerewards-177a0",
+    "storage_bucket": "collegerewards-177a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413583261568:android:d76c44d09b35e95d9d0b65",
+        "android_client_info": {
+          "package_name": "edu.missouri.collegerewards"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfKbI30OxBCvtysi0Qn2BO11NbKjWnhdc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
