@@ -36,5 +36,10 @@
     <string name="home">Home</string>
     <string name="pointcount">X points</string>
     <string name="nextrewardcount">X points till next Reward</string>
+    <string name="admin_home">Admin Home</string>
+    <string name="admin_events">Event Name</string>
+    <string name="admin_events_title">Your Events</string>
+    <string name="date">Date</string>
+    <string name="location">Location</string>
 
 </resources>
