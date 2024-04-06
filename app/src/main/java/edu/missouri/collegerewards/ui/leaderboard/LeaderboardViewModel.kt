@@ -1,4 +1,4 @@
-package edu.missouri.collegerewards.ui.account
+package edu.missouri.collegerewards.ui.leaderboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

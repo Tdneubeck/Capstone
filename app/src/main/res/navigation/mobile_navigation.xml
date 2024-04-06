@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/navigation_leaderboard"
-        android:name="edu.missouri.collegerewards.ui.account.LeaderboardFragment"
+        android:name="edu.missouri.collegerewards.ui.leaderboard.LeaderboardFragment"
         android:label="@string/title_leaderboard"
         tools:layout="@layout/fragment_leaderboard" />
 

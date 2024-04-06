@@ -4,76 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.account.LeaderboardFragment"
+    tools:context=".ui.leaderboard.LeaderboardFragment"
     app:layout_constraintTop_toTopOf="parent"
     >
 
 
-
-    <TextView
-        android:id="@+id/leaderboard_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/leaderboard"
-        android:fontFamily="@font/graduate"
-        android:shadowColor="@color/black"
-        android:shadowDx="7"
-        android:shadowDy="2"
-        android:shadowRadius="1.0"
-        android:gravity="center_horizontal"
-        android:textSize="48sp"
-        android:textColor="@color/yellow"
-        app:layout_constraintTop_toTopOf="parent"
-         />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/leaderboard_title">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/leaderboard_title"
             android:layout_width="match_parent"
-            android:layout_height="275dp"
-            android:orientation="horizontal">
+            android:layout_height="82dp"
+            android:fontFamily="@font/graduate"
+            android:gravity="center_horizontal"
+            android:shadowColor="@color/black"
+            android:shadowDx="7"
+            android:shadowDy="2"
+            android:shadowRadius="1.0"
+            android:text="@string/leaderboard"
+            android:textColor="@color/yellow"
+            android:textSize="48sp"
+            app:layout_constraintTop_toTopOf="parent" />
 
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/local_list"
-                android:layout_width="205dp"
-                android:layout_height="match_parent">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/global_list"
-                android:layout_width="205dp"
-                android:layout_height="match_parent">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-        </LinearLayout>
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/LeaderboardRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="275dp"
-            android:orientation="horizontal">
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/school_list"
-                android:layout_width="205dp"
-                android:layout_height="match_parent">
-
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/friend_list"
-                android:layout_width="205dp"
-                android:layout_height="match_parent">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-        </LinearLayout>
+            android:layout_height="585dp"
+            android:layout_marginBottom="138dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
