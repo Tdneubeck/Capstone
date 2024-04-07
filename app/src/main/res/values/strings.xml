@@ -41,5 +41,6 @@
     <string name="admin_events_title">Your Events</string>
     <string name="date">Date</string>
     <string name="location">Location</string>
+    <string name="log_out">Log-Out</string>
 
 </resources>
