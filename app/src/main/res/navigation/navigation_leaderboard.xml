@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/leaderboardFragment"
-        android:name="edu.missouri.collegerewards.ui.account.LeaderboardFragment"
+        android:name="edu.missouri.collegerewards.ui.leaderboard.LeaderboardFragment"
         android:label="fragment_leaderboard"
         tools:layout="@layout/fragment_leaderboard" />
 </navigation>
