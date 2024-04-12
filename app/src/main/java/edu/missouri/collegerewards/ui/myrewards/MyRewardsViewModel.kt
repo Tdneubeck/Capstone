@@ -7,8 +7,10 @@ import edu.missouri.collegerewards.data.SingletonData
 
 class MyRewardsViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
+    private val point_text = MutableLiveData<String>().apply {
         value = "${SingletonData.shared.currentUser.points} points"
     }
-    val text: LiveData<String> = _text
+    val _text: LiveData<String> = point_text
+
+
 }
