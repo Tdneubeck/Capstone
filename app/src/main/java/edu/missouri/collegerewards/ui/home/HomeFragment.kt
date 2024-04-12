@@ -30,7 +30,6 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
-    private lateinit var signOutButton: Button
 
 
 
@@ -51,10 +50,7 @@ class HomeFragment : Fragment() {
         homeViewModel.pointtext.observe(viewLifecycleOwner) {
             textView.text = it
         }
-        val nextrewardtext: TextView = binding.nextrewardcount
-        homeViewModel.nextrewardtext.observe(viewLifecycleOwner) {
-            nextrewardtext.text = it
-        }
+
         val usertext: TextView = binding.userhello
         homeViewModel.usertext.observe(viewLifecycleOwner) {
             usertext.text = it
