@@ -48,9 +48,6 @@ class LeaderboardFragment : Fragment() {
                 }
             }
 
-            // Now, leaderboardTiles is sorted by score and indexed correctly starting from 1
-            // You can use it as needed
-
             recyclerView.adapter = LeaderboardAdapter(leaderboardTiles, requireContext())
         }.addOnFailureListener {
             //for error handling

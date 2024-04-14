@@ -1,8 +1,6 @@
 package edu.missouri.collegerewards.ui.myrewards
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,14 +9,8 @@ import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
-import edu.missouri.collegerewards.R
 import edu.missouri.collegerewards.databinding.FragmentMyRewardsBinding
-import edu.missouri.collegerewards.ui.home.HomeViewModel
 
 class MyRewardsFragment : Fragment() {
 
@@ -26,17 +18,17 @@ class MyRewardsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var rewardAdapter: RewardAdapter // Assuming you have a RewardAdapter class
+    private lateinit var rewardAdapter: RewardAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        val MyRewardsViewModel=
+        val myRewardsViewModel=
             ViewModelProvider(this)[MyRewardsViewModel::class.java]
         _binding = FragmentMyRewardsBinding.inflate(inflater, container, false)
 
         val textView: TextView = binding.rewardpointcount
-        MyRewardsViewModel._text.observe(viewLifecycleOwner){
+        myRewardsViewModel._text.observe(viewLifecycleOwner){
             textView.text = it
         }
 
@@ -48,28 +40,35 @@ class MyRewardsFragment : Fragment() {
 
         recyclerView = binding.RewardRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        rewardAdapter = RewardAdapter(emptyList()) // Initialize with empty list initially
+        rewardAdapter = RewardAdapter(emptyList(), requireContext()) // Initialize with empty list initially
         recyclerView.adapter = rewardAdapter
 
+        val db = FirebaseFirestore.getInstance()
+        val rewardRef = db.collection("Rewards")
 
-        val rewardsList = mutableListOf<RewardTile>()
+        rewardRef.get().addOnSuccessListener {documents ->
+            // Sort documents by score in descending order
+            val sortedDocuments = documents.sortedBy { it.getLong("cost")?: Long.MAX_VALUE }
 
-        // Assuming you have a reference to your Firebase database
-        val databaseReference = FirebaseDatabase.getInstance().getReference("rewards")
-        databaseReference.get().addOnSuccessListener { dataSnapshot ->
-            for (snapshot in dataSnapshot.children) {
-                val reward = snapshot.getValue(RewardTile::class.java)
-                reward?.let {
-                    rewardsList.add(it)
+            // Map sorted documents to LeaderboardTile objects with correct index
+            val rewardTiles = sortedDocuments.mapNotNull { document ->
+                val title = document.getString("title")
+                val cost = document.getLong("cost") // Assuming points are stored as Long, adjust as needed
+                val imgUrl = document.getString("imgUrl")
+                // Check if both username and score are not null
+                if (title != null && cost != null && imgUrl != null) {
+                    RewardTile(imgUrl, title, cost.toInt()) // Convert score to Int if needed
+                } else {
+                    null // Return null if either username or score is null
                 }
             }
-            Log.d("DataRetrieval", "Retrieved ${rewardsList.size} rewards")
-            rewardAdapter.setData(rewardsList)
-        }.addOnFailureListener { exception ->
-            // Handle failure
-            Log.e(TAG, "Error getting data", exception)
+
+            recyclerView.adapter = RewardAdapter(rewardTiles, requireContext())
+        }.addOnFailureListener {
+            //for error handling
         }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
