@@ -2,26 +2,33 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@color/grey"
+        android:padding="8dp"
+        android:layout_margin="4dp">
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="108dp"
+            android:layout_height="108dp"
             android:src="@drawable/app_logo"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:layout_margin="5dp"/>
         <LinearLayout
             android:layout_width="125dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            >
             <TextView
                 android:id="@+id/nameTextView"
                 android:layout_width="125dp"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:padding="8dp"/>
+                android:padding="8dp"
+                android:text="@string/testEvent1"
+                />
 
             <TextView
                 android:id="@+id/pointsTextView"
@@ -41,6 +48,8 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:textSize="12sp"
+            android:layout_gravity="center_vertical"
             android:text="Redeem" />
     </LinearLayout>
 </RelativeLayout>
