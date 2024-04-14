@@ -1,7 +1,6 @@
 package edu.missouri.collegerewards.ui.conditionalnav
 
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import edu.missouri.collegerewards.R
@@ -79,7 +74,8 @@ class RegisterFragment : Fragment() {
                     val userData = mapOf(
                         "name" to "$firstName $lastName",
                         "email" to email,
-                        "uid" to Firebase.auth.currentUser!!.uid
+                        "uid" to Firebase.auth.currentUser!!.uid,
+                        "points" to 0
                     )
                     userRef.set(userData)
                     Navigator.navigate(NavigationType.Auth, R.id.action_registerFragment_to_mainContentFragment)

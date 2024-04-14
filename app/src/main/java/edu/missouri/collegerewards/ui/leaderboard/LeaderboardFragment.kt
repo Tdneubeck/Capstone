@@ -32,10 +32,24 @@ class LeaderboardFragment : Fragment() {
         val usersRef = db.collection("Users")
 
         usersRef.get().addOnSuccessListener { documents ->
-            val leaderboardTiles = documents.mapNotNull { document ->
+            // Sort documents by score in descending order
+            val sortedDocuments = documents.sortedByDescending { it.getLong("points") ?: 0 }
+
+            // Map sorted documents to LeaderboardTile objects with correct index
+            val leaderboardTiles = sortedDocuments.mapIndexedNotNull { index, document ->
                 val username = document.getString("name")
-                username?.let { LeaderboardTile(0, it, 0) }
-            }.sortedBy { it.username } //TODO Sort by username; need to replace with Score or Point total
+                val score = document.getLong("points") // Assuming points are stored as Long, adjust as needed
+
+                // Check if both username and score are not null
+                if (username != null && score != null) {
+                    LeaderboardTile(index + 1, username, score.toInt()) // Convert score to Int if needed
+                } else {
+                    null // Return null if either username or score is null
+                }
+            }
+
+            // Now, leaderboardTiles is sorted by score and indexed correctly starting from 1
+            // You can use it as needed
 
             recyclerView.adapter = LeaderboardAdapter(leaderboardTiles, requireContext())
         }.addOnFailureListener {
