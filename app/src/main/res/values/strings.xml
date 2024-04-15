@@ -42,5 +42,7 @@
     <string name="date">Date</string>
     <string name="location">Location</string>
     <string name="log_out">Log-Out</string>
+    <string name="switch_to_list">Switch to List</string>
+    <string name="switch_to_calendar">Switch to Calendar</string>
 
 </resources>

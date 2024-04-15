@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
+import android.provider.CalendarContract.Events
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +19,7 @@ import com.google.android.gms.location.LocationServices
 import edu.missouri.collegerewards.R
 
 
-class UpcomingEventItemAdapter(private val context: Context, private val dataset: List<UpcomingEvent>)
+class UpcomingEventItemAdapter(private val context: Context, private val dataset: List<Events>)
     : RecyclerView.Adapter<UpcomingEventItemAdapter.UpcomingEventItemViewHolder>() {
 
     class UpcomingEventItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view){
@@ -40,10 +41,7 @@ class UpcomingEventItemAdapter(private val context: Context, private val dataset
 
     override fun onBindViewHolder(holder: UpcomingEventItemViewHolder, position: Int) {
         val item = dataset[position]
-        holder.titleTextView.text = context.resources.getString(item.titleStringResourceID)
-        holder.locationTextView.text = context.resources.getString(item.locationStringResourceID)
-        holder.dateTextView.text = context.resources.getString(item.eventDateStringResourceID)
-        holder.imageView.setImageResource(item.imageResourceID)
+
 
         // Set click listener for the item
         holder.itemView.setOnClickListener {
