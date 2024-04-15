@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import edu.missouri.collegerewards.data.SingletonData
 import edu.missouri.collegerewards.databinding.FragmentHomeBinding
 import edu.missouri.collegerewards.ui.upcomingevents.UpcomingEventDataSource
 import edu.missouri.collegerewards.ui.upcomingevents.UpcomingEventItemAdapter
@@ -29,8 +30,6 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
-
-
 
 
     override fun onCreateView(
@@ -55,8 +54,7 @@ class HomeFragment : Fragment() {
         recyclerView = binding.Nexteventhomeview
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        val myDataSet = UpcomingEventDataSource().loadUpcomingEvents()
-        recyclerView.adapter = UpcomingEventItemAdapter(requireContext(), myDataSet)
+        UpcomingEventItemAdapter(requireContext(), SingletonData.shared.eventsList)
 
         binding.logoutButton.setOnClickListener {
             FirebaseAuth.getInstance().signOut()

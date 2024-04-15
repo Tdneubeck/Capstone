@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import edu.missouri.collegerewards.R
+import edu.missouri.collegerewards.data.SingletonData
 import edu.missouri.collegerewards.databinding.FragmentUpcomingEventsBinding
 
 class UpcomingEventsFragment : Fragment() {
@@ -27,8 +28,8 @@ class UpcomingEventsFragment : Fragment() {
         recyclerView = binding.upcomingEventsRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        val myDataSet = UpcomingEventDataSource().loadUpcomingEvents()
-        recyclerView.adapter = UpcomingEventItemAdapter(requireContext(), myDataSet)
+
+        recyclerView.adapter = UpcomingEventItemAdapter(requireContext(), SingletonData.shared.eventsList)
 
         recyclerView.setHasFixedSize(true)
 

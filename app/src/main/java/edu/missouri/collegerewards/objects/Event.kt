@@ -7,7 +7,7 @@ import com.google.firebase.storage.StorageReference
 class Event {
 
     var title: String = ""
-    var image: StorageReference? = null
+    var imgUrl: String = ""
 
     companion object {
         fun loadEvents(completion: (MutableList<Event>) -> Unit) {
@@ -30,10 +30,8 @@ class Event {
 
     constructor(data: Map<String, Any>) {
         this.title = data["title"] as? String ?: ""
-        this.loadImage()
+        this.imgUrl = data["imgUrl"] as? String ?: ""
     }
 
-    fun loadImage() {
 
-    }
 }
