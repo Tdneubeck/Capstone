@@ -21,7 +21,10 @@ import com.google.firebase.database.ServerValue
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import edu.missouri.collegerewards.data.SingletonData
 import edu.missouri.collegerewards.databinding.MainContentFragmentBinding
+import edu.missouri.collegerewards.objects.Event
+import edu.missouri.collegerewards.objects.Reward
 import edu.missouri.collegerewards.util.NavigationType
 import edu.missouri.collegerewards.util.Navigator
 import kotlinx.coroutines.flow.collectLatest
@@ -61,6 +64,7 @@ class MainContentFragment: Fragment(R.layout.main_content_fragment) {
         val navController = navHostFragment.navController
         binding.bottomNav.setupWithNavController(navController)
 
+        loadEventsAndRewards()
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if(noBottomNav.contains(destination.id)) {
@@ -103,6 +107,23 @@ class MainContentFragment: Fragment(R.layout.main_content_fragment) {
         }
 
 
+    }
+
+    private fun loadEventsAndRewards() {
+        Reward.loadRewards { rewards ->
+            SingletonData.shared.rewardsList = rewards
+            Log.e("Rewards Count", rewards.size.toString())
+            rewards.forEach {
+                Log.e("Reward", it.title)
+            }
+        }
+        Event.loadEvents { events ->
+            SingletonData.shared.eventsList = events
+            Log.e("Events Count", events.size.toString())
+            events.forEach {
+                Log.e("Event", it.title)
+            }
+        }
     }
 
 
