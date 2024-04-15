@@ -25,7 +25,6 @@ class HomeFragment : Fragment() {
     private lateinit var logoutButton: Button
 
 
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -43,8 +42,6 @@ class HomeFragment : Fragment() {
             ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
 
         val textView: TextView = binding.homepointcount
         homeViewModel.pointtext.observe(viewLifecycleOwner) {
@@ -66,8 +63,9 @@ class HomeFragment : Fragment() {
         }
 
 
-        return root
+        return binding.root
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

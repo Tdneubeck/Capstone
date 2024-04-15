@@ -23,7 +23,6 @@ class User() {
         this.email = data["email"] as? String ?: ""
         this.points = (data["points"] as? Long)?.toInt() ?: 0
         this.fcmToken = data["fcmToken"] as? String ?: ""
-
     }
 
     constructor(
@@ -38,6 +37,8 @@ class User() {
         this.uid = uid
         this.name = name
         this.fcmToken = fcmToken
+
+
     }
 
     companion object {
