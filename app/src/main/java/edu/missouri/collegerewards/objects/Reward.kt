@@ -7,7 +7,7 @@ import com.google.firebase.storage.StorageReference
 class Reward {
 
     var title: String = ""
-    var image: StorageReference? = null
+    var imgUrl: String = ""
     var cost: Int = 0
 
     companion object {
@@ -32,11 +32,8 @@ class Reward {
     constructor(data: Map<String, Any>) {
         this.title = data["title"] as? String ?: ""
         this.cost = (data["cost"] as? Long)?.toInt() ?: 0
-        this.loadImage()
+        this.imgUrl = data["imgUrl"] as? String ?: ""
     }
 
-    fun loadImage() {
-
-    }
 
 }

@@ -16,9 +16,10 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.location.LocationServices
 import edu.missouri.collegerewards.R
+import edu.missouri.collegerewards.objects.Event
 
 
-class UpcomingEventItemAdapter(private val context: Context, private val dataset: List<UpcomingEvent>)
+class UpcomingEventItemAdapter(private val context: Context, private val dataset: List<Event>)
     : RecyclerView.Adapter<UpcomingEventItemAdapter.UpcomingEventItemViewHolder>() {
 
     class UpcomingEventItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view){
@@ -40,10 +41,9 @@ class UpcomingEventItemAdapter(private val context: Context, private val dataset
 
     override fun onBindViewHolder(holder: UpcomingEventItemViewHolder, position: Int) {
         val item = dataset[position]
-        holder.titleTextView.text = context.resources.getString(item.titleStringResourceID)
-        holder.locationTextView.text = context.resources.getString(item.locationStringResourceID)
-        holder.dateTextView.text = context.resources.getString(item.eventDateStringResourceID)
-        holder.imageView.setImageResource(item.imageResourceID)
+        holder.titleTextView.text = item.title
+        holder.locationTextView.text = "Location Name"
+        holder.dateTextView.text = "Date"
 
         // Set click listener for the item
         holder.itemView.setOnClickListener {
