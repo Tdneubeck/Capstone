@@ -42,8 +42,8 @@ class UpcomingEventItemAdapter(private val context: Context, private val dataset
     override fun onBindViewHolder(holder: UpcomingEventItemViewHolder, position: Int) {
         val item = dataset[position]
         holder.titleTextView.text = item.title
-        holder.locationTextView.text = "Location Name"
-        holder.dateTextView.text = "Date"
+        holder.locationTextView.text = item.location
+        holder.dateTextView.text = item.date
 
         // Set click listener for the item
         holder.itemView.setOnClickListener {

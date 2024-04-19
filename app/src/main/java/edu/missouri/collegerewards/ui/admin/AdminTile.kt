@@ -1,15 +1,13 @@
 package edu.missouri.collegerewards.ui.admin
 
-import java.util.Date
+import com.google.type.Date
+
 
 class AdminTile (
-    val imgUrl:String,
-    val Title: String,
-    val Location: String,
-    val Date: Date,
-    val Rewards_Code:String
-    ) {
+    val imgUrl: String,
+    val title: String,
+    val location: String,
+    val date: String,
+    val rewardcode: String,
 
-}
-
-
+    )

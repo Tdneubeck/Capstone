@@ -53,18 +53,44 @@ class LoginFragment : Fragment() {
                 // Logged in
                 User.loadUser(Firebase.auth.currentUser!!.uid) { user ->
                     if (user == null) {
-                        val newUser = User(email = Firebase.auth.currentUser!!.email!!, password = "", uid = Firebase.auth.currentUser!!.uid, name = "", fcmToken = "")
-                        newUser.saveUser { success ->
+                        val newUser = User(
+                            email = Firebase.auth.currentUser!!.email!!,
+                            password = "",
+                            uid = Firebase.auth.currentUser!!.uid,
+                            name = "",
+                            fcmToken = "",
+                            role = false
+                        )
+                        newUser.saveInitialUser { success ->
                             if (success) {
                                 // Navigate to Home
                                 SingletonData.shared.currentUser = newUser
-                                Navigator.navigate(NavigationType.Auth, R.id.action_loginFragment_to_mainContentFragment)
+                                if (newUser.role) {
+                                    Navigator.navigate(
+                                        NavigationType.Auth,
+                                        R.id.action_loginFragment_to_adminFragment
+                                    )
+                                } else {
+                                    Navigator.navigate(
+                                        NavigationType.Auth,
+                                        R.id.action_loginFragment_to_mainContentFragment
+                                    )
+                                }
                             }
                         }
                     } else {
-                        // Navigate to home
-                        SingletonData.shared.currentUser = user
-                        Navigator.navigate(NavigationType.Auth, R.id.action_loginFragment_to_mainContentFragment)
+                        // Navigate based on user's role
+                        if (user.role) {
+                            Navigator.navigate(
+                                NavigationType.Auth,
+                                R.id.action_loginFragment_to_adminFragment
+                            )
+                        } else {
+                            Navigator.navigate(
+                                NavigationType.Auth,
+                                R.id.action_loginFragment_to_mainContentFragment
+                            )
+                        }
                     }
                 }
             }

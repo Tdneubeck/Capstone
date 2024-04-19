@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.firestore.FirebaseFirestore
 import edu.missouri.collegerewards.data.SingletonData
 import edu.missouri.collegerewards.databinding.FragmentMyRewardsBinding
 
@@ -41,7 +40,7 @@ class MyRewardsFragment : Fragment() {
 
         recyclerView = binding.RewardRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        rewardAdapter = RewardAdapter(emptyList(), requireContext())
+        rewardAdapter = RewardAdapter(context,emptyList(),)
         recyclerView.adapter = rewardAdapter
 
         val rewardTiles = SingletonData.shared.rewardsList.sortedBy { it.cost }.map { reward ->
@@ -51,7 +50,7 @@ class MyRewardsFragment : Fragment() {
             RewardTile(imgUrl, title, cost)
         }
 
-        recyclerView.adapter = RewardAdapter(rewardTiles, requireContext())
+        recyclerView.adapter = RewardAdapter(context,rewardTiles )
     }
 
 

@@ -42,12 +42,14 @@
                     android:orientation="horizontal"
                     android:gravity="center">
                     <Button
+                        android:id="@+id/Add_event_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Add Event"
                         android:textColor="@color/black"
                         android:layout_margin="20dp"/>
                     <Button
+                        android:id="@+id/edit_event_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Edit Event"

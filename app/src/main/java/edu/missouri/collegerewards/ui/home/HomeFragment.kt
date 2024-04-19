@@ -1,6 +1,5 @@
 package edu.missouri.collegerewards.ui.home
 
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,12 +11,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import edu.missouri.collegerewards.data.SingletonData
 import edu.missouri.collegerewards.databinding.FragmentHomeBinding
-import edu.missouri.collegerewards.ui.upcomingevents.UpcomingEventDataSource
 import edu.missouri.collegerewards.ui.upcomingevents.UpcomingEventItemAdapter
+import edu.missouri.collegerewards.objects.User
 
 
 class HomeFragment : Fragment() {
@@ -57,7 +54,7 @@ class HomeFragment : Fragment() {
         UpcomingEventItemAdapter(requireContext(), SingletonData.shared.eventsList)
 
         binding.logoutButton.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
+            User.logOut()
         }
 
 
