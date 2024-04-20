@@ -1,11 +1,10 @@
 package edu.missouri.collegerewards.ui.home
 
-import android.R
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -13,18 +12,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import edu.missouri.collegerewards.data.SingletonData
 import edu.missouri.collegerewards.databinding.FragmentHomeBinding
-import edu.missouri.collegerewards.ui.upcomingevents.UpcomingEventDataSource
 import edu.missouri.collegerewards.ui.upcomingevents.UpcomingEventItemAdapter
 
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-    private lateinit var logoutButton: Button
+
 
 
     // This property is only valid between onCreateView and
@@ -44,9 +40,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         val textView: TextView = binding.homepointcount
-        /*homeViewModel.pointtext.observe(viewLifecycleOwner) {
-            textView.text = it
-        }*/
+
         SingletonData.shared.userPoints.observe(viewLifecycleOwner, Observer { points ->
             textView.text = getString(edu.missouri.collegerewards.R.string.point_count, points)
         })
