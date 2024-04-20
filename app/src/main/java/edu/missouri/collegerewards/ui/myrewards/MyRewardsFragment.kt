@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import edu.missouri.collegerewards.R
 import edu.missouri.collegerewards.data.SingletonData
 import edu.missouri.collegerewards.databinding.FragmentMyRewardsBinding
 
@@ -21,6 +23,8 @@ class MyRewardsFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var rewardAdapter: RewardAdapter
 
+    private lateinit var rewardPointCount: TextView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -29,9 +33,10 @@ class MyRewardsFragment : Fragment() {
         _binding = FragmentMyRewardsBinding.inflate(inflater, container, false)
 
         val textView: TextView = binding.rewardpointcount
-        myRewardsViewModel._text.observe(viewLifecycleOwner){
-            textView.text = it
-        }
+        // Observe the userPoints LiveData from SingletonData
+        SingletonData.shared.userPoints.observe(viewLifecycleOwner, Observer { points ->
+            textView.text = getString(R.string.point_count, points)
+        })
 
         return binding.root
     }

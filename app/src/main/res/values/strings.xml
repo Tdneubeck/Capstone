@@ -34,7 +34,7 @@
     <string name="leaderboard">Leaderboard</string>
     <string name="calendar">Calendar</string>
     <string name="home">Home</string>
-    <string name="pointcount">X points</string>
+    <string name="point_count">%1$d Points</string>
     <string name="nextrewardcount">X points till next Reward</string>
     <string name="admin_home">Admin Home</string>
     <string name="admin_events">Event Name</string>

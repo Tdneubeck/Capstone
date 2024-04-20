@@ -20,4 +20,5 @@ class HomeViewModel : ViewModel() {
         value = "Hello, ${SingletonData.shared.currentUser.name.split(" ")[0]}"
     }
     val usertext: LiveData<String> = user_text
+
 }
