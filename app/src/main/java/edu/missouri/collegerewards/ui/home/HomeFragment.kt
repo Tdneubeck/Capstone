@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import edu.missouri.collegerewards.data.SingletonData
 import edu.missouri.collegerewards.databinding.FragmentHomeBinding
 import edu.missouri.collegerewards.ui.upcomingevents.UpcomingEventItemAdapter
+import edu.missouri.collegerewards.objects.User
 
 
 class HomeFragment : Fragment() {
@@ -55,7 +56,7 @@ class HomeFragment : Fragment() {
         UpcomingEventItemAdapter(requireContext(), SingletonData.shared.eventsList)
 
         binding.logoutButton.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
+            User.logOut()
         }
         //initial update user points
         SingletonData.shared.updatePoints(SingletonData.shared.currentUser.points)
