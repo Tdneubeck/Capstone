@@ -65,32 +65,18 @@ class LoginFragment : Fragment() {
                             if (success) {
                                 // Navigate to Home
                                 SingletonData.shared.currentUser = newUser
-                                if (newUser.role) {
-                                    Navigator.navigate(
-                                        NavigationType.Auth,
-                                        R.id.action_loginFragment_to_adminFragment
-                                    )
-                                } else {
-                                    Navigator.navigate(
-                                        NavigationType.Auth,
-                                        R.id.action_loginFragment_to_mainContentFragment
-                                    )
-                                }
+                                Navigator.navigate(
+                                    NavigationType.Auth,
+                                    R.id.action_loginFragment_to_mainContentFragment
+                                )
                             }
                         }
                     } else {
                         // Navigate based on user's role
-                        if (user.role) {
-                            Navigator.navigate(
-                                NavigationType.Auth,
-                                R.id.action_loginFragment_to_adminFragment
-                            )
-                        } else {
-                            Navigator.navigate(
-                                NavigationType.Auth,
-                                R.id.action_loginFragment_to_mainContentFragment
-                            )
-                        }
+                        Navigator.navigate(
+                            NavigationType.Auth,
+                            R.id.action_loginFragment_to_mainContentFragment
+                        )
                     }
                 }
             }

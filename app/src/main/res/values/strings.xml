@@ -42,5 +42,6 @@
     <string name="date">Date</string>
     <string name="location">Location</string>
     <string name="log_out">Log-Out</string>
+    <string name="admin_page">Admin Page</string>
 
 </resources>
