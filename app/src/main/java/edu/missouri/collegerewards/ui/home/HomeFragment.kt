@@ -11,10 +11,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
+import edu.missouri.collegerewards.R
 import edu.missouri.collegerewards.data.SingletonData
 import edu.missouri.collegerewards.databinding.FragmentHomeBinding
 import edu.missouri.collegerewards.ui.upcomingevents.UpcomingEventItemAdapter
 import edu.missouri.collegerewards.objects.User
+import edu.missouri.collegerewards.util.NavigationType
+import edu.missouri.collegerewards.util.Navigator
 
 
 class HomeFragment : Fragment() {
@@ -34,20 +37,9 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        val textView: TextView = binding.homepointcount
-        homeViewModel.pointtext.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-
-        val usertext: TextView = binding.userhello
-        homeViewModel.usertext.observe(viewLifecycleOwner) {
-            usertext.text = it
-        }
         recyclerView = binding.Nexteventhomeview
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -59,6 +51,24 @@ class HomeFragment : Fragment() {
 
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.homepointcount.text = "${SingletonData.shared.currentUser.points} points"
+        binding.userhello.text = "Hello, ${SingletonData.shared.currentUser.name.split(" ")[0]}"
+
+        if (SingletonData.shared.currentUser.role) {
+            binding.adminButton.visibility = View.VISIBLE
+        } else {
+            binding.adminButton.visibility = View.GONE
+        }
+
+        binding.adminButton.setOnClickListener {
+            Navigator.navigate(NavigationType.Content, R.id.action_homeFragment_to_adminFragment)
+        }
+
     }
 
 
