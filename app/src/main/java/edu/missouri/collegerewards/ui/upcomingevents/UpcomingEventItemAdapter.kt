@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.android.gms.location.LocationServices
 import edu.missouri.collegerewards.R
 import edu.missouri.collegerewards.objects.Event
@@ -41,6 +42,9 @@ class UpcomingEventItemAdapter(private val context: Context, private val dataset
 
     override fun onBindViewHolder(holder: UpcomingEventItemViewHolder, position: Int) {
         val item = dataset[position]
+        Glide.with(holder.itemView)
+            .load(item.imgUrl)
+            .into(holder.imageView)
         holder.titleTextView.text = item.title
         holder.locationTextView.text = item.location
         holder.dateTextView.text = item.date

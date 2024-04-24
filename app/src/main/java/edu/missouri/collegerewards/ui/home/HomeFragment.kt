@@ -51,7 +51,7 @@ class HomeFragment : Fragment() {
         recyclerView = binding.Nexteventhomeview
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        UpcomingEventItemAdapter(requireContext(), SingletonData.shared.eventsList)
+        recyclerView.adapter = UpcomingEventItemAdapter(requireContext(), SingletonData.shared.eventsList)
 
         binding.logoutButton.setOnClickListener {
             User.logOut()

@@ -4,9 +4,9 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
 data class UpcomingEvent (
-    @StringRes val titleStringResourceID: Int,
-    @StringRes val locationStringResourceID: Int,
-    @StringRes val eventDateStringResourceID: Int,
-    @DrawableRes val imageResourceID: Int,
+    val titleStringResourceID: String,
+    val locationStringResourceID: String,
+    val eventDateStringResourceID: String,
+    val imageResourceID: String
 
 )
