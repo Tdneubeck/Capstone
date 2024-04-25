@@ -25,7 +25,7 @@
                 android:id="@+id/nameTextView"
                 android:layout_width="125dp"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 android:padding="8dp"
                 android:text="@string/testEvent1"
                 />

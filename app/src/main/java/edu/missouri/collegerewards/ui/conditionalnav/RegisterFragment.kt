@@ -24,6 +24,7 @@ class RegisterFragment : Fragment() {
     private lateinit var passwordEditText: EditText
     private lateinit var confirmPasswordEditText: EditText
     private lateinit var registerButton: Button
+    private lateinit var loginButton: Button
 
 
 
@@ -39,6 +40,7 @@ class RegisterFragment : Fragment() {
         passwordEditText = view.findViewById(R.id.password)
         confirmPasswordEditText = view.findViewById(R.id.confirm_password)
         registerButton = view.findViewById(R.id.registerButton)
+        loginButton = view.findViewById(R.id.login_link)
 
         registerButton.setOnClickListener {
             registerUser(
@@ -48,6 +50,9 @@ class RegisterFragment : Fragment() {
                 passwordEditText.text.toString(),
                 confirmPasswordEditText.text.toString()
             )
+        }
+        loginButton.setOnClickListener{
+            Navigator.navigate(NavigationType.Auth, R.id.action_registerFragment_to_loginFragment)
         }
 
         return view
