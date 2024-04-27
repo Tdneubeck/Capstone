@@ -20,8 +20,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_margin="30dp"
-                android:background="@color/grey"
+                android:background="@drawable/upcoming_event_custom_boarder"
                 >
+                <!--android:background="@color/grey"-->
 
                 <TextView
                     android:id="@+id/userhello"
@@ -61,13 +62,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/grey"
+                android:background="@drawable/upcoming_event_custom_boarder"
                 android:layout_margin="30dp"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/title_upcoming_events"
+                    android:text="@string/title_upcoming_event"
                     android:fontFamily="@font/graduate"
                     android:shadowColor="@color/yellow"
                     android:shadowDx="7"

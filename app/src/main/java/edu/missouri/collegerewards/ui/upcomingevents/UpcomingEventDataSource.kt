@@ -2,6 +2,7 @@ package edu.missouri.collegerewards.ui.upcomingevents
 
 import edu.missouri.collegerewards.R
 
+// TODO: this can be removed 
 /*class to load upcoming events. Function that returns a list of UpcomingEvent objects to be displayed on screen
 Strings are grabbed from the strings.xml file in the values folder - the strings will likely need to be added dynamically
 from firebase to the strings.xml file
