@@ -6,6 +6,7 @@
 
     <string name="title_home">Home</string>
     <string name="title_upcoming_events">Events</string>
+    <string name="title_upcoming_event">Next Event</string>
     <string name="title_my_rewards">My Rewards</string>
     <string name="title_leaderboard">Leaderboard</string>
 

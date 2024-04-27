@@ -3,6 +3,7 @@ package edu.missouri.collegerewards.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.android.datatransport.Event
 import edu.missouri.collegerewards.data.SingletonData
 
 class HomeViewModel : ViewModel() {
@@ -20,5 +21,6 @@ class HomeViewModel : ViewModel() {
         value = "Hello, ${SingletonData.shared.currentUser.name.split(" ")[0]}"
     }
     val usertext: LiveData<String> = user_text
+
 
 }

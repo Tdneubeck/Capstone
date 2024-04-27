@@ -9,9 +9,10 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="4dp"
-        android:background="@color/grey"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:background="@drawable/upcoming_event_custom_boarder">>
+        <!--android:background="@color/grey-->
 
         <ImageView
             android:id="@+id/imageView"
