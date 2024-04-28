@@ -56,8 +56,8 @@
                     android:text="@string/log_out"
                     android:textSize="24sp"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/yellow"
-                    android:backgroundTint="@color/grey"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/yellow"
                     android:layout_margin="15dp"/>
                 <Button
                     android:id="@+id/admin_button"
@@ -66,8 +66,8 @@
                     android:text="@string/admin_page"
                     android:textSize="24sp"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/yellow"
-                    android:backgroundTint="@color/grey"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/yellow"
                     android:layout_margin="15dp"/>
             </LinearLayout>
             <LinearLayout

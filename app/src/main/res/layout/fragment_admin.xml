@@ -15,9 +15,10 @@
             <LinearLayout
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:background="@color/grey"
                android:layout_margin="30dp"
-               android:orientation="vertical">
+               android:orientation="vertical"
+               android:background="@drawable/upcoming_event_custom_boarder">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -78,14 +79,14 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="Add Event"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:layout_margin="20dp"/>
 
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/grey"
+                android:background="@drawable/upcoming_event_custom_boarder"
                 android:layout_margin="30dp"
                 android:orientation="vertical">
                 <TextView
