@@ -15,8 +15,8 @@
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
         <action
-            android:id="@+id/action_loginFragment_self"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_loginFragment_to_registerFragment2"
+            app:destination="@id/registerFragment" />
     </fragment>
     <fragment
         android:id="@+id/mainContentFragment"
@@ -33,5 +33,8 @@
         <action
             android:id="@+id/action_registerFragment_to_mainContentFragment"
             app:destination="@id/mainContentFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 </navigation>

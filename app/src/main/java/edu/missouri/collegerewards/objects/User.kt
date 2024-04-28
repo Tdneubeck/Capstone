@@ -16,6 +16,7 @@ class User() {
     var fcmToken: String = ""
     var points: Int = 0
     var password: String = ""
+    var role: Boolean = false
 
     constructor(data: Map<String, Any>) : this() {
         this.name = data["name"] as? String ?: ""
@@ -23,6 +24,7 @@ class User() {
         this.email = data["email"] as? String ?: ""
         this.points = (data["points"] as? Long)?.toInt() ?: 0
         this.fcmToken = data["fcmToken"] as? String ?: ""
+        this.role = data["role"] as? Boolean ?: false
     }
 
     constructor(
@@ -30,15 +32,15 @@ class User() {
         password: String,
         uid: String,
         name: String,
-        fcmToken: String = ""
+        fcmToken: String = "",
+        role: Boolean
     ) : this() {
         this.email = email
         this.password = password
         this.uid = uid
         this.name = name
         this.fcmToken = fcmToken
-
-
+        this.role = role
     }
 
     companion object {
@@ -125,7 +127,8 @@ class User() {
             "uid" to auth.currentUser?.uid,
             "points" to this.points,
             "fcmToken" to token,
-            "name" to this.name
+            "name" to this.name,
+            "role" to this.role
         )
 
         database.set(databaseDictionary, SetOptions.merge()).addOnCompleteListener { task ->
@@ -151,6 +154,7 @@ class User() {
             "points" to this.points,
             "fcmToken" to token,
             "name" to this.name,
+            "role" to false
         )
 
 

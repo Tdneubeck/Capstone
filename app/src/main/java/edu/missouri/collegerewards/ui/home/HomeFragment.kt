@@ -1,27 +1,29 @@
 package edu.missouri.collegerewards.ui.home
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
+import edu.missouri.collegerewards.R
 import edu.missouri.collegerewards.data.SingletonData
 import edu.missouri.collegerewards.databinding.FragmentHomeBinding
 import edu.missouri.collegerewards.ui.upcomingevents.UpcomingEventItemAdapter
 import edu.missouri.collegerewards.objects.User
+import edu.missouri.collegerewards.util.NavigationType
+import edu.missouri.collegerewards.util.Navigator
 
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
+    private lateinit var logoutButton: Button
 
 
     // This property is only valid between onCreateView and
@@ -35,33 +37,38 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        val textView: TextView = binding.homepointcount
-
-        SingletonData.shared.userPoints.observe(viewLifecycleOwner, Observer { points ->
-            textView.text = getString(edu.missouri.collegerewards.R.string.point_count, points)
-        })
-
-        val usertext: TextView = binding.userhello
-        homeViewModel.usertext.observe(viewLifecycleOwner) {
-            usertext.text = it
-        }
         recyclerView = binding.Nexteventhomeview
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        UpcomingEventItemAdapter(requireContext(), SingletonData.shared.eventsList)
+        recyclerView.adapter = UpcomingEventItemAdapter(requireContext(), SingletonData.shared.eventsList)
 
         binding.logoutButton.setOnClickListener {
             User.logOut()
         }
-        //initial update user points
-        SingletonData.shared.updatePoints(SingletonData.shared.currentUser.points)
+
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.homepointcount.text = "${SingletonData.shared.currentUser.points} points"
+        binding.userhello.text = "Hello, ${SingletonData.shared.currentUser.name.split(" ")[0]}"
+
+        if (SingletonData.shared.currentUser.role) {
+            binding.adminButton.visibility = View.VISIBLE
+
+        } else {
+            binding.adminButton.visibility = View.GONE
+        }
+        binding.adminButton.setOnClickListener {
+            Navigator.navigate(NavigationType.Content, R.id.action_homeFragment_to_adminFragment)
+        }
+
     }
 
 
