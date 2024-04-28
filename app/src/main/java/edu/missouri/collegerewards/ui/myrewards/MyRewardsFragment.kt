@@ -40,7 +40,7 @@ class MyRewardsFragment : Fragment() {
 
         recyclerView = binding.RewardRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        rewardAdapter = RewardAdapter(context,emptyList(),)
+        rewardAdapter = RewardAdapter(emptyList(), requireContext())
         recyclerView.adapter = rewardAdapter
 
         val rewardTiles = SingletonData.shared.rewardsList.sortedBy { it.cost }.map { reward ->
@@ -50,7 +50,7 @@ class MyRewardsFragment : Fragment() {
             RewardTile(imgUrl, title, cost)
         }
 
-        recyclerView.adapter = RewardAdapter(context,rewardTiles )
+        recyclerView.adapter = RewardAdapter(rewardTiles, requireContext())
     }
 
 
