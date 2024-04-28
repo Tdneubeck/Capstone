@@ -47,7 +47,7 @@ class AdminAdapter(private var adminEvents: List<AdminTile>, requireContext: Con
         val imageView: ImageView = itemView.findViewById(R.id.admin_event_item_image)
         val title: TextView = itemView.findViewById(R.id.admin_event_item_title)
         val location: TextView = itemView.findViewById(R.id.admin_event_item_location)
-        val date: Button = itemView.findViewById(R.id.admin_event_item_date)
+        val date: TextView = itemView.findViewById(R.id.admin_event_item_date)
         val code: TextView = itemView.findViewById(R.id.admin_event_item_code)
     }
 }

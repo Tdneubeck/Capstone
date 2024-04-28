@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -24,6 +26,13 @@ class AdminFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
     private lateinit var adminAdapter: AdminAdapter
+    private lateinit var AddEventButton:Button
+    private lateinit var editEventButton: Button
+    private lateinit var title: EditText
+    private lateinit var location: EditText
+    private lateinit var date: EditText
+    private lateinit var imgUrl: EditText
+
 
 
     override fun onCreateView(
@@ -41,6 +50,21 @@ class AdminFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        AddEventButton = binding.AddEventButton
+        title = binding.eventName
+        location=binding.eventLocation
+        date = binding.eventDate
+        imgUrl = binding.eventImage
+
+
+
+        AddEventButton.setOnClickListener {
+            if (title != null){
+
+            }
+
+        }
 
         recyclerView = binding.AdminEventsRecyclerview
         recyclerView.layoutManager = LinearLayoutManager(requireContext())

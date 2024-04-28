@@ -61,10 +61,10 @@ class HomeFragment : Fragment() {
 
         if (SingletonData.shared.currentUser.role) {
             binding.adminButton.visibility = View.VISIBLE
+
         } else {
             binding.adminButton.visibility = View.GONE
         }
-
         binding.adminButton.setOnClickListener {
             Navigator.navigate(NavigationType.Content, R.id.action_homeFragment_to_adminFragment)
         }
