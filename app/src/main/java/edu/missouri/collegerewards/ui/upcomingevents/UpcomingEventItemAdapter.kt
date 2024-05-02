@@ -8,6 +8,7 @@ import android.location.Location
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -15,19 +16,27 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.firebase.geofire.GeoFireUtils
+import com.firebase.geofire.GeoLocation
 import com.google.android.gms.location.LocationServices
 import edu.missouri.collegerewards.R
+import edu.missouri.collegerewards.data.SingletonData
 import edu.missouri.collegerewards.objects.Event
 
 
-class UpcomingEventItemAdapter(private val context: Context, private val dataset: List<Event>)
+class UpcomingEventItemAdapter(private val context: Context, private val dataset: List<Event>, private val eventListener: EventInteractionListener)
     : RecyclerView.Adapter<UpcomingEventItemAdapter.UpcomingEventItemViewHolder>() {
+
+        interface EventInteractionListener {
+            fun onCheckInClicked(event: Event)
+        }
 
     class UpcomingEventItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view){
         val titleTextView: TextView = view.findViewById(R.id.upcoming_event_item_title)
         val locationTextView: TextView = view.findViewById(R.id.upcoming_event_item_location)
         val dateTextView: TextView = view.findViewById(R.id.upcoming_event_item_date)
         val imageView: ImageView = view.findViewById(R.id.upcoming_event_item_image)
+        val checkInButton: Button = view.findViewById(R.id.check_in_button)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpcomingEventItemViewHolder {
@@ -46,68 +55,14 @@ class UpcomingEventItemAdapter(private val context: Context, private val dataset
             .load(item.imgUrl)
             .into(holder.imageView)
         holder.titleTextView.text = item.title
-        holder.locationTextView.text = item.location
+        holder.locationTextView.text = item.locationName
         holder.dateTextView.text = item.date
-
-        // Set click listener for the item
-        holder.itemView.setOnClickListener {
-            // Handle item click event
-            // check permissions, Retrieve device location and display it
-            if (hasLocationPermission(context)) {
-                Toast.makeText(context, "Location Permission ON", Toast.LENGTH_SHORT).show()
-                fetchDeviceLocation(context)
-            } else {
-                requestLocationPermission(context)
-                Toast.makeText(context, "Location Permission OFF", Toast.LENGTH_SHORT).show()
-            }
-
+        holder.checkInButton.setOnClickListener {
+            eventListener.onCheckInClicked(item)
         }
 
     }
-    private fun hasLocationPermission(context: Context): Boolean {
-        return ContextCompat.checkSelfPermission(
-            context,
-            Manifest.permission.ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED
-    }
 
-    private fun requestLocationPermission(context: Context) {
-        ActivityCompat.requestPermissions(
-            context as Activity,
-            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-            LOCATION_PERMISSION_REQUEST_CODE
-        )
-    }
-
-
-    //check location permissions, check location
-    private fun fetchDeviceLocation(context: Context) {
-        // Check for location permissions
-        if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            // Handle the case where location permissions are not granted
-            // You can request permissions here
-            return
-        }
-        // Create a FusedLocationProviderClient
-        val fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
-
-        // Get the last known location of the device
-        fusedLocationClient.lastLocation
-            .addOnSuccessListener { location : Location? ->
-                // Got last known location. In some rare situations, this can be null.
-                if (location != null) {
-                    // Display the device's current location
-                    val latitude = location.latitude
-                    val longitude = location.longitude
-                    val locationText = "Latitude: $latitude, Longitude: $longitude"
-                    Toast.makeText(context, locationText, Toast.LENGTH_LONG).show()
-                } else {
-                    // Handle the case where the last location is null
-                }
-            }
-    }
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 100
     }

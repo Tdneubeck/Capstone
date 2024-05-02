@@ -65,17 +65,21 @@ class MainActivity: AppCompatActivity() {
 
 
         var firstLoad = true
-
+        Log.e("HERE", "1")
         val authNavHostFragment = supportFragmentManager.findFragmentById(R.id.mainFragmentNavHost) as NavHostFragment
         val authNavController = authNavHostFragment.navController
         val graph = authNavController.navInflater.inflate(R.navigation.main_nav_graph)
         if (Firebase.auth.currentUser != null) {
+            Log.e("HERE", "2")
             User.loadUser { user ->
                 intent.extras?.getString("route")?.let {
                     Log.e("Route", it)
                 }
+                Log.e("HERE", "3")
                 graph.setStartDestination(R.id.mainContentFragment)
+                Log.e("HERE", "4")
                 authNavController.graph = graph
+                Log.e("HERE", "5")
                 NotificationsManager.generateToken { User.updateFCMToken(it) { /* Token Sent*/ } }
             }
         } else {

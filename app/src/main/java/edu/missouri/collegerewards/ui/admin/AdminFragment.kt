@@ -15,14 +15,11 @@ import androidx.lifecycle.ViewModelProvider
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import edu.missouri.collegerewards.data.SingletonData
 import edu.missouri.collegerewards.databinding.FragmentAdminBinding
 import edu.missouri.collegerewards.objects.Event
-import android.location.Address
-import android.location.Geocoder
 
 
 class AdminFragment : Fragment() {
@@ -78,7 +75,7 @@ class AdminFragment : Fragment() {
 
         val adminTiles = SingletonData.shared.eventsList.sortedBy { it.title }.map { event ->
             val title = event.title
-            val location = event.location
+            val location = event.locationName
             val imgUrl = event.imgUrl
             val date = event.date
             val code = event.code
@@ -100,13 +97,13 @@ class AdminFragment : Fragment() {
 
                 val eventRef = Firebase.firestore.collection("Events").document()
 
-                val eventData = hashMapOf(
+                val eventData = mapOf(
+                    "id" to eventRef.id,
                     "title" to titleText,
-                    "location" to locationText,
+                    "locationName" to locationText,
                     "date" to dateText,
                     "imgUrl" to imgUrlText,
                     "points" to points
-                    // Add any additional fields here
                 )
                 val newEvent= Event(eventData)
 

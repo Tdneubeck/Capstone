@@ -14,17 +14,21 @@ class User() {
     var uid: String = ""
     var name: String = ""
     var fcmToken: String = ""
+    var totalPoints: Int = 0
     var points: Int = 0
     var password: String = ""
     var role: Boolean = false
+    var checkedInEvents: MutableList<String> = mutableListOf()
 
     constructor(data: Map<String, Any>) : this() {
         this.name = data["name"] as? String ?: ""
         this.uid = data["uid"] as? String ?: ""
         this.email = data["email"] as? String ?: ""
         this.points = (data["points"] as? Long)?.toInt() ?: 0
+        this.totalPoints = (data["totalPoints"] as? Long)?.toInt() ?: 0
         this.fcmToken = data["fcmToken"] as? String ?: ""
         this.role = data["role"] as? Boolean ?: false
+        this.checkedInEvents = data["checkedInEvents"] as? MutableList<String> ?: mutableListOf()
     }
 
     constructor(
@@ -115,6 +119,18 @@ class User() {
             }
     }
 
+    fun checkInToEvent(event: Event) {
+        this.points += event.points
+        this.totalPoints += event.points
+        this.checkedInEvents.add(event.id)
+        saveUser {  }
+    }
+
+    fun redeemReward(cost: Int) {
+        this.points -= cost
+        saveUser {  }
+    }
+
     fun saveUser(completion: (Boolean) -> Unit) {
         val database = Firebase.firestore.collection("Users").document(Firebase.auth.currentUser!!.uid)
         val auth = Firebase.auth
@@ -126,9 +142,11 @@ class User() {
             "email" to auth.currentUser?.email,
             "uid" to auth.currentUser?.uid,
             "points" to this.points,
+            "totalPoints" to this.totalPoints,
             "fcmToken" to token,
             "name" to this.name,
-            "role" to this.role
+            "role" to this.role,
+            "checkedInEvents" to this.checkedInEvents
         )
 
         database.set(databaseDictionary, SetOptions.merge()).addOnCompleteListener { task ->
@@ -152,6 +170,7 @@ class User() {
             "email" to auth.currentUser?.email,
             "uid" to auth.currentUser?.uid,
             "points" to this.points,
+            "totalPoints" to this.totalPoints,
             "fcmToken" to token,
             "name" to this.name,
             "role" to false

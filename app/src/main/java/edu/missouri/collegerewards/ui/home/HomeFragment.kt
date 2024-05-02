@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import edu.missouri.collegerewards.R
 import edu.missouri.collegerewards.data.SingletonData
 import edu.missouri.collegerewards.databinding.FragmentHomeBinding
+import edu.missouri.collegerewards.objects.Event
 import edu.missouri.collegerewards.ui.upcomingevents.UpcomingEventItemAdapter
 import edu.missouri.collegerewards.objects.User
 import edu.missouri.collegerewards.util.NavigationType
@@ -43,7 +44,12 @@ class HomeFragment : Fragment() {
         recyclerView = binding.Nexteventhomeview
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        recyclerView.adapter = UpcomingEventItemAdapter(requireContext(), SingletonData.shared.eventsList)
+        recyclerView.adapter = UpcomingEventItemAdapter(requireContext(), SingletonData.shared.eventsList, object : UpcomingEventItemAdapter.EventInteractionListener {
+            override fun onCheckInClicked(event: Event) {
+                // NO-OP
+            }
+
+        })
 
         binding.logoutButton.setOnClickListener {
             User.logOut()

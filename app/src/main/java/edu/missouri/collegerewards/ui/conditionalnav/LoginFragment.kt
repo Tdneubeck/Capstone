@@ -9,6 +9,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.firebase.geofire.GeoFireUtils
+import com.firebase.geofire.GeoLocation
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -45,11 +47,11 @@ class LoginFragment : Fragment() {
         return view
     }
 
+
     private fun loginUser(email: String, password: String) {
         if (password.isBlank() || email.isBlank()) return
         User.login(email, password) { wasSuccessful ->
             if (wasSuccessful) {
-                Log.e("HOORAY!", "HERE")
                 // Logged in
                 User.loadUser(Firebase.auth.currentUser!!.uid) { user ->
                     if (user == null) {
@@ -72,6 +74,7 @@ class LoginFragment : Fragment() {
                             }
                         }
                     } else {
+                        SingletonData.shared.currentUser = user
                         // Navigate based on user's role
                         Navigator.navigate(
                             NavigationType.Auth,

@@ -38,7 +38,7 @@ class LeaderboardFragment : Fragment() {
             // Map sorted documents to LeaderboardTile objects with correct index
             val leaderboardTiles = sortedDocuments.mapIndexedNotNull { index, document ->
                 val username = document.getString("name")
-                val score = document.getLong("points") // Assuming points are stored as Long, adjust as needed
+                val score = document.getLong("totalPoints") // Assuming points are stored as Long, adjust as needed
 
                 // Check if both username and score are not null
                 if (username != null && score != null) {

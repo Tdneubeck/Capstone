@@ -40,9 +40,7 @@ class MyRewardsFragment : Fragment() {
 
         recyclerView = binding.RewardRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        rewardAdapter = RewardAdapter(context,emptyList(),)
-        recyclerView.adapter = rewardAdapter
-
+        binding.rewardpointcount.text = SingletonData.shared.currentUser.points.toString() + " points"
         val rewardTiles = SingletonData.shared.rewardsList.sortedBy { it.cost }.map { reward ->
             val title = reward.title
             val cost = reward.cost
@@ -50,7 +48,12 @@ class MyRewardsFragment : Fragment() {
             RewardTile(imgUrl, title, cost)
         }
 
-        recyclerView.adapter = RewardAdapter(context,rewardTiles )
+        recyclerView.adapter = RewardAdapter(context,rewardTiles, object : RewardAdapter.RewardInteractionListener {
+            override fun onRedeemClicked(cost: Int) {
+                SingletonData.shared.currentUser.redeemReward(cost)
+                binding.rewardpointcount.text = SingletonData.shared.currentUser.points.toString() + " points"
+            }
+        })
     }
 
 
