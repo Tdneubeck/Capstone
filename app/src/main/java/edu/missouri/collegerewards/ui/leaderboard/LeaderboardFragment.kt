@@ -33,7 +33,7 @@ class LeaderboardFragment : Fragment() {
 
         usersRef.get().addOnSuccessListener { documents ->
             // Sort documents by score in descending order
-            val sortedDocuments = documents.sortedByDescending { it.getLong("points") ?: 0 }
+            val sortedDocuments = documents.sortedByDescending { it.getLong("totalPoints") ?: 0 }
 
             // Map sorted documents to LeaderboardTile objects with correct index
             val leaderboardTiles = sortedDocuments.mapIndexedNotNull { index, document ->
